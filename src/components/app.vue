@@ -2,7 +2,7 @@
 import store from '../store'
 import card from './card'
 import list from './list'
-import text from './text'
+import senders from './senders'
 import message from './message'
 
 export default {
@@ -41,7 +41,7 @@ export default {
     }
   },
   components: {
-    card, list, text, message
+    card, list, senders, message
   }
 }
 
@@ -55,7 +55,7 @@ export default {
         </div>
         <div class="main">
             <message :session="session" :user="user" :user-list="userList"></message> 
-            <text :session="session"></text>
+            <senders :session></senders>
         </div>
     </div>
 </template>
