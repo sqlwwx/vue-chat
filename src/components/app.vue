@@ -1,50 +1,49 @@
 <script>
-    import store from '../store';
-    import card from './card';
-    import list from './list';
-    import text from './text';
-    import message from './message';
+import store from '../store'
+import card from './card'
+import list from './list'
+import text from './text'
+import message from './message'
 
-    export default {
-        el: '#chat',
-        data () {
-            let serverData = store.fetch();
-
-            return {
-                // 登录用户
-                user: serverData.user,
-                // 用户列表
-                userList: serverData.userList,
-                // 会话列表
-                sessionList: serverData.sessionList,
-                // 搜索key
-                search: '',
-                // 选中的会话Index
-                sessionIndex: 0
-            };
-        },
-        computed: {
-            session () {
-                return this.sessionList[this.sessionIndex];
-            }
-        },
-        watch: {
-            // 每当sessionList改变时，保存到localStorage中
-            sessionList: {
-                deep: true,
-                handler () {
-                    store.save({
-                        user: this.user,
-                        userList: this.userList,
-                        sessionList: this.sessionList
-                    });
-                }
-            }
-        },
-        components: {
-            card, list, text, message
-        }
-    };
+export default {
+  el: '#chat',
+  data () {
+    let serverData = store.fetch()
+    return {
+      // 登录用户
+      user: serverData.user,
+      // 用户列表
+      userList: serverData.userList,
+      // 会话列表
+      sessionList: serverData.sessionList,
+      // 搜索key
+      search: '',
+      // 选中的会话Index
+      sessionIndex: 0
+    }
+  },
+  computed: {
+    session () {
+      return this.sessionList[this.sessionIndex]
+    }
+  },
+  watch: {
+    // 每当sessionList改变时，保存到localStorage中
+    sessionList: {
+      deep: true,
+      handler () {
+        store.save({
+          user: this.user,
+          userList: this.userList,
+          sessionList: this.sessionList
+        })
+      }
+    }
+  },
+  components: {
+    card, list, text, message
+  }
+}
 
 </script>
 

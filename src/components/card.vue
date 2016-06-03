@@ -1,7 +1,7 @@
 <script>
-    export default {
-        props: ['user', 'search']
-    };
+export default {
+  props: ['user', 'search']
+}
 </script>
 
 <template>

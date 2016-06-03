@@ -1,17 +1,17 @@
 <script>
-    export default {
-        props: ['userList', 'sessionIndex', 'session', 'search'],
-        methods: {
-            select (value) {
-                this.sessionIndex = this.userList.indexOf(value);
-            }
-        },
-        filters: {
-            search (list) {
-                return list.filter(item => item.name.indexOf(this.search) > -1);
-            }
-        }
-    };
+export default {
+  props: ['userList', 'sessionIndex', 'session', 'search'],
+  methods: {
+    select (value) {
+      this.sessionIndex = this.userList.indexOf(value)
+    }
+  },
+  filters: {
+    search (list) {
+      return list.filter(item => item.name.indexOf(this.search) > -1)
+    }
+  }
+}
 </script>
 
 <template>

@@ -1,24 +1,24 @@
 <script>
-    export default {
-        props: ['session'],
-        data () {
-            return {
-                text: ''
-            };
-        },
-        methods: {
-            inputing (e) {
-                if (e.ctrlKey && e.keyCode === 13 && this.text.length) {
-                    this.session.messages.push({
-                        text: this.text,
-                        date: new Date(),
-                        self: true
-                    });
-                    this.text = '';
-                }
-            }
-        }
-    };
+export default {
+  props: ['session'],
+  data () {
+    return {
+      text: ''
+    }
+  },
+  methods: {
+    inputing (e) {
+      if (e.ctrlKey && e.keyCode === 13 && this.text.length) {
+        this.session.messages.push({
+          text: this.text,
+          date: new Date(),
+          self: true
+        })
+        this.text = ''
+      }
+    }
+  }
+}
 </script>
 
 <template>

@@ -1,5 +1,7 @@
-import app from './components/app';
+import app from './components/app'
+import Vue from 'vue'
 
-Vue.config.debug = true;
+Vue.config.debug = true
 
-new Vue(app);
+/* eslint-disable no-new */
+new Vue(app)

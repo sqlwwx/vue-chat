@@ -1,36 +1,36 @@
 <script>
-    export default {
-        props: ['session', 'user', 'userList'],
-        computed: {
-            sessionUser () {
-                let users = this.userList.filter(item => item.id === this.session.userId);
-                return users[0];
-            }
-        },
-        filters: {
-            // 筛选出用户头像
-            avatar (item) {
-                // 如果是自己发的消息显示登录用户的头像
-                let user = item.self ? this.user : this.sessionUser;
-                return user && user.img;
-            },
-            // 将日期过滤为 hour:minutes
-            time (date) {
-                if (typeof date === 'string') {
-                    date = new Date(date);
-                }
-                return date.getHours() + ':' + date.getMinutes();
-            }
-        },
-        directives: {
-            // 发送消息后滚动到底部
-            'scroll-bottom' () {
-                Vue.nextTick(() => {
-                    this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight;
-                });
-            }
-        }
-    };
+export default {
+  props: ['session', 'user', 'userList'],
+  computed: {
+    sessionUser () {
+      let users = this.userList.filter(item => item.id === this.session.userId)
+      return users[0]
+    }
+  },
+  filters: {
+    // 筛选出用户头像
+    avatar (item) {
+      // 如果是自己发的消息显示登录用户的头像
+      let user = item.self ? this.user : this.sessionUser
+      return user && user.img
+    },
+    // 将日期过滤为 hour:minutes
+    time (date) {
+      if (typeof date === 'string') {
+        date = new Date(date)
+      }
+      return date.getHours() + ':' + date.getMinutes()
+    }
+  },
+  directives: {
+    // 发送消息后滚动到底部
+    'scroll-bottom' () {
+-     Vue.nextTick(() => {
+-       this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight
+-     })
+    }
+  }
+}
 </script>
 
 <template>
