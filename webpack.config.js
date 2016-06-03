@@ -1,6 +1,9 @@
 var path = require('path');
 
 module.exports = {
+    eslint: {
+        formatter: require('eslint-friendly-formatter')
+    },
     // 入口
     entry: './src/main',
     // 输出
@@ -10,6 +13,10 @@ module.exports = {
         publicPath: '/dist/'
     },
     module: {
+        preLoaders: [
+            { test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/ },
+            { test: /\.vue$/, loader: 'eslint-loader' }
+        ],
         // 加载器
         loaders: [
             { test: /\.vue$/, loader: 'vue' },
