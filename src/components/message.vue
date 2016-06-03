@@ -25,9 +25,10 @@ export default {
   directives: {
     // 发送消息后滚动到底部
     'scroll-bottom' () {
--     Vue.nextTick(() => {
--       this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight
--     })
+      // 延迟回调在下次 DOM 更新循环之后执行。在修改数据之后立即使用这个方法，等待 DOM 更新。http://cn.vuejs.org/api/#Vue-nextTick
+      this.vm.$nextTick(() => {
+        this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight
+      })
     }
   }
 }
