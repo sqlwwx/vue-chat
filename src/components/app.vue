@@ -48,7 +48,7 @@ export default {
 </script>
 
 <template>
-<div>
+<div id="chat">
   <div class="sidebar">
     <card :user="user" :search.sync="search"></card>
     <list :user-list="userList" :session="session" :session-index.sync="sessionIndex" :search="search"></list>
@@ -62,6 +62,9 @@ export default {
 
 <style lang="less">
 #chat {
+  margin: 0px auto;
+  width: 800px;
+  height: 100%;
   overflow: hidden;
   border-radius: 3px;
   .sidebar, .main {
@@ -69,7 +72,7 @@ export default {
   }
   .sidebar {
     float: left;
-    width: 200px;
+    width: 280px;
     color: #f4f4f4;
     background-color: #2e3238;
   }
